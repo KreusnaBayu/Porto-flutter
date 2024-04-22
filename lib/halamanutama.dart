@@ -69,7 +69,7 @@ class _HalamanUtamaState extends State<HalamanUtama> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 400,
+          
                 height: 150,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
