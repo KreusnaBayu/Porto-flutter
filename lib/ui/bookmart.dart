@@ -1,3 +1,4 @@
+import 'package:april20/ui/Responsif.dart';
 import 'package:flutter/material.dart';
 
 class Bookmark extends StatefulWidget {
@@ -15,7 +16,10 @@ class _BookmarkState extends State<Bookmark> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bookmark',style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text(
+          'Bookmark',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         actions: [
           IconButton(
@@ -38,11 +42,13 @@ class _BookmarkState extends State<Bookmark> {
               selectedBorderColor: Colors.black,
               children: _resolutions.map((resolution) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 10.0),
                   child: Text(resolution, style: TextStyle(fontSize: 16)),
                 );
               }).toList(),
-              isSelected: List.generate(_resolutions.length, (index) => index == _selectedResolutionIndex),
+              isSelected: List.generate(_resolutions.length,
+                  (index) => index == _selectedResolutionIndex),
               onPressed: (int index) {
                 setState(() {
                   _selectedResolutionIndex = index;
@@ -60,7 +66,8 @@ class _BookmarkState extends State<Bookmark> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: AssetImage('assets/gambar.jpg'), // Ganti dengan path gambar sesuai kebutuhan
+                  image: AssetImage(
+                      'assets/gambar.jpg'), // Ganti dengan path gambar sesuai kebutuhan
                   fit: BoxFit.cover,
                 ),
               ),
@@ -69,7 +76,7 @@ class _BookmarkState extends State<Bookmark> {
             Expanded(
               child: SingleChildScrollView(
                 child: Text(
-                  'Ini adalah deskripsi singkat tentang video yang ditandai sebagai bookmark. Deskripsi ini memberikan informasi tambahan kepada pengguna tentang konten video yang ditonton.',
+                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                   style: TextStyle(fontSize: 16),
                 ),
               ),
@@ -77,9 +84,15 @@ class _BookmarkState extends State<Bookmark> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Tambahkan logika untuk menonton video disini
+               Navigator.pop(context); 
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetailScreen()), 
+                ); 
               },
-              child: Text('Tonton Video',),
+              child: Text(
+                'Tonton Video',
+              ),
             ),
           ],
         ),
